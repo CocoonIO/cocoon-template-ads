@@ -1,0 +1,2 @@
+Ads Atomic Plugin Template
+=========================
