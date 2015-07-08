@@ -1,4 +1,4 @@
-Atomic Plugins for Ads Template
+Cocoon Ads Template
 ================================
 
 This demo is built using [Pixi.js](http://www.pixijs.com/) and [Cocoon Canvas+](https://cocoon.io/doc/canvas_plus) in landscape view and fullscreen. 
@@ -36,11 +36,10 @@ As you can see, it is not neccessary to include *plugins*, *platforms* or *hooks
 
 ## References and useful links
 
-### About Atomic Plugins for Ads
+### About Cocoon Ads
 
-* [Atomic Plugins](http://atomic-plugins.com/)
-* Atomic Plugins for Ads at [GitHub](https://github.com/ludei/atomic-plugins-ads)
-* Atomic Plugins for Ads [API Documentation](http://ludei.github.io/cocoon-common/dist/doc/js/Cocoon.Ad.html)
+* Cocoon Ads at [GitHub](https://github.com/ludei/atomic-plugins-ads#javascript-api)
+* Cocoon Ads [API Documentation](http://ludei.github.io/cocoon-common/dist/doc/js/Cocoon.Ad.html)
 
 ### About Pixi.js 
 

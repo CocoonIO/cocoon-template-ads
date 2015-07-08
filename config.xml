@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8' ?>
-<widget id="io.cocoon.template.atomic.ads" version="1.0.3" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:cocoon="http://cocoon.io/ns/1.0">
+<widget id="io.cocoon.template.ads" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:cocoon="http://cocoon.io/ns/1.0">
     <name>Cocoon Ads Template</name>
     <description>
-        Ads template for Cocoon.io cloud compiler based on Atomic Plugins (https://github.com/ludei/atomic-plugins-ads) and Pixi.js (https://github.com/GoodBoyDigital/pixi.js)
+        Ads template for Cocoon.io cloud compiler based on Cocoon Ads Plugins (https://github.com/ludei/atomic-plugins-ads#javascript-api) and Pixi.js (https://github.com/GoodBoyDigital/pixi.js)
     </description>
     <author email="nazari@ludei.com" href="http://ludei.com/">
         Nazarí González
