@@ -20,23 +20,23 @@
     <cocoon:plugin name="com.ludei.canvasplus.ios" />
     <cocoon:plugin name="com.ludei.canvasplus.android" />  
 
-    <!-- Admob Plugins -->
+    <!-- MoPub Base Plugins -->
+    <cocoon:plugin name="cocoon-plugin-ads-ios-mopub" />
+    <cocoon:plugin name="cocoon-plugin-ads-android-mopub" />
+    <!-- MoPub Adapters -->
+    <cocoon:plugin name="cocoon-plugin-ads-ios-mopub-adcolony" />
+    <cocoon:plugin name="cocoon-plugin-ads-ios-mopub-admob" />
+    <cocoon:plugin name="cocoon-plugin-ads-ios-mopub-chartboost" />
+    <cocoon:plugin name="cocoon-plugin-ads-ios-mopub-millennial" />
+    <cocoon:plugin name="cocoon-plugin-ads-android-mopub-adcolony" />
+    <cocoon:plugin name="cocoon-plugin-ads-android-mopub-admob" />
+    <cocoon:plugin name="cocoon-plugin-ads-android-mopub-chartboost" />
+    <cocoon:plugin name="cocoon-plugin-ads-android-mopub-greystripe" />
+    <cocoon:plugin name="cocoon-plugin-ads-android-mopub-inmobi" />
+    <cocoon:plugin name="cocoon-plugin-ads-android-mopub-millennial" />
+
+    <!-- Admob Base Plugins -->
     <cocoon:plugin name="cocoon-plugin-ads-ios-admob"/>
     <cocoon:plugin name="cocoon-plugin-ads-android-admob"/>
 
-    <!-- ANDROID -->
-    <platform name="android">
-        <!-- Mopub data -->
-        <preference name="mopub_banner" value="68949c5d9de74b79bb79aa29c203ca02" />
-        <preference name="mopub_interstitial" value="74a813ae7a404881bf17eb8d1b0aa943" />
-    </platform>
-
-    <!-- IOS -->
-    <platform name="ios">
-        <!-- Mopub data -->
-        <preference name="mopub_banner" value="agltb3B1Yi1pbmNyDQsSBFNpdGUY5dDoEww" />
-        <preference name="mopub_banner_ipad" value="agltb3B1Yi1pbmNyDQsSBFNpdGUYk8vlEww" />
-        <preference name="mopub_interstitial" value="agltb3B1Yi1pbmNyDQsSBFNpdGUYjf30Eww" />
-        <preference name="mopub_interstitial_ipad" value="agltb3B1Yi1pbmNyDQsSBFNpdGUYjf30Eww" />
-    </platform>
 </widget>

@@ -12,10 +12,13 @@
     var button1Texture;
     var button2Texture;
 
+    var adService;
+
+    var container;
 
     function createBanner() {
 
-        banner = Cocoon.Ad.createBanner();
+        banner = adService.createBanner();
 
         banner.on("load", function(){
             console.log("Banner loaded " + banner.width, banner.height);
@@ -40,7 +43,7 @@
 
     function createInterstitial() {
 
-        interstitial = Cocoon.Ad.createInterstitial();
+        interstitial = adService.createInterstitial();
 
         interstitial.on("load", function(){
             console.log("Interstitial loaded");
@@ -60,67 +63,63 @@
         });
     }
 
-    function initAds() {
-        //Configuration If AdMob service plugins are installed
-        Cocoon.Ad.configure({
-             ios: {
-                  banner:"ca-app-pub-7686972479101507/8873903476",
-                  interstitial:"ca-app-pub-7686972479101507/8873903476",
-             },
-             android: {
-                  banner:"ca-app-pub-7686972479101507/4443703872",
-                  interstitial:"ca-app-pub-7686972479101507/4443703872"
-             }
+    function showProviderSelector() {
+
+        var btnTestAdmob = createButton("Test AdMob", function(){
+            if (!window.Cocoon || !Cocoon.Ad || !Cocoon.Ad.AdMob) {
+                alert('Cocoon AdMob plugin not installed');
+                return;
+            }
+            adService = Cocoon.Ad.AdMob;
+            adService.configure({
+                 ios: {
+                      banner:"ca-app-pub-7686972479101507/8873903476",
+                      interstitial:"ca-app-pub-7686972479101507/8873903476",
+                 },
+                 android: {
+                      banner:"ca-app-pub-7686972479101507/4443703872",
+                      interstitial:"ca-app-pub-7686972479101507/4443703872"
+                 }
+            });
+
+        });
+        var btnTestMoPub = createButton("Test MoPub", function(){
+
+            if (!window.Cocoon || !Cocoon.Ad || !Cocoon.Ad.MoPub) {
+                alert('Cocoon MoPub plugin not installed');
+                return;
+            }
+            adService = Cocoon.Ad.MoPub;
+            adService.configure({
+                 ios: {
+                      banner:"agltb3B1Yi1pbmNyDQsSBFNpdGUY5dDoEww",
+                      bannerIpad:"agltb3B1Yi1pbmNyDQsSBFNpdGUYk8vlEww", //optional
+                      interstitial:"agltb3B1Yi1pbmNyDQsSBFNpdGUYjf30Eww",
+                      interstitialIpad:"agltb3B1Yi1pbmNyDQsSBFNpdGUYjf30Eww", //optional
+                 },
+                 android: {
+                      banner:"68949c5d9de74b79bb79aa29c203ca02",
+                      interstitial:"74a813ae7a404881bf17eb8d1b0aa943"
+                 }
+            });
+            showControls();
         });
 
-        //Configuration If MoPub service plugins are installed
-        /*Cocoon.Ad.configure({
-             ios: {
-                  banner:"agltb3B1Yi1pbmNyDQsSBFNpdGUY5dDoEww",
-                  bannerIpad:"agltb3B1Yi1pbmNyDQsSBFNpdGUYk8vlEww", //optional
-                  interstitial:"agltb3B1Yi1pbmNyDQsSBFNpdGUYjf30Eww",
-                  interstitialIpad:"agltb3B1Yi1pbmNyDQsSBFNpdGUYjf30Eww", //optional
-             },
-             android: {
-                  banner:"68949c5d9de74b79bb79aa29c203ca02",
-                  interstitial:"74a813ae7a404881bf17eb8d1b0aa943"
-             }
-        });*/
+        btnTestAdmob.position.set(0, -50);
+        container.addChild(btnTestAdmob);
 
-        createBanner();
-        createInterstitial();
+        btnTestMoPub.position.set(0, 50);
+        container.addChild(btnTestMoPub);
     }
 
-    function initDemo(){
+    function showControls() {
+        container.removeChildren();
+        if (adService) {
+            createBanner();
+            createInterstitial();
+        }
 
-        initAds();
-        var renderer = PIXI.autoDetectRenderer(window.innerWidth, window.innerHeight);
-        document.body.appendChild(renderer.view);
-
-        var W = 800;
-        var H = 600;
-
-        //load resources
-        backgroundTexture = PIXI.Texture.fromImage('./images/background.jpg');
-        button1Texture = PIXI.Texture.fromImage('./images/button1.png');
-        button2Texture = PIXI.Texture.fromImage('./images/button2.png');
-
-        var stage = new PIXI.Container();
-        stage.interactive = true;
-
-        //Add background
-        var background = new PIXI.Sprite(backgroundTexture);
-        background.width = renderer.width;
-        background.height = renderer.height;
-        stage.addChild(background);
-
-        var scale = Math.min(renderer.width/W, renderer.height/H);
-        var container = new PIXI.Container();
-        container.scale.set(scale, scale);
-        container.position.set(renderer.width/2, renderer.height/2);
-        stage.addChild(container);
-
-        //Add buttons
+         //Add buttons
         var btnShowBanner = createButton("Show banner", function(){
             banner.show();
         });
@@ -176,44 +175,74 @@
 
         interstitialStatus.position.set(-150, 250);
         container.addChild(interstitialStatus);
+    }
 
+    function initDemo(){
+
+        var renderer = PIXI.autoDetectRenderer(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.view);
+
+        var W = 800;
+        var H = 600;
+
+        //load resources
+        backgroundTexture = PIXI.Texture.fromImage('./images/background.jpg');
+        button1Texture = PIXI.Texture.fromImage('./images/button1.png');
+        button2Texture = PIXI.Texture.fromImage('./images/button2.png');
+
+        var stage = new PIXI.Container();
+        stage.interactive = true;
+
+        //Add background
+        var background = new PIXI.Sprite(backgroundTexture);
+        background.width = renderer.width;
+        background.height = renderer.height;
+        stage.addChild(background);
+
+        var scale = Math.min(renderer.width/W, renderer.height/H);
+        container = new PIXI.Container();
+        container.scale.set(scale, scale);
+        container.position.set(renderer.width/2, renderer.height/2);
+        stage.addChild(container);
+
+        showProviderSelector();
         // start animating
         animate();
         function animate() {
             requestAnimationFrame(animate);
             renderer.render(stage);
         }
+    }
 
-        function createButton(text, callback) {
+    function createButton(text, callback) {
 
-            var button = new PIXI.Sprite(button1Texture);
-            button.anchor.set(0.5, 0.5);
-            button.interactive = true;
-            button.addChild(createText(text));
+        var button = new PIXI.Sprite(button1Texture);
+        button.anchor.set(0.5, 0.5);
+        button.interactive = true;
+        button.addChild(createText(text));
 
-            button.mousedown = button.touchstart = function(){
-                this.texture = button2Texture;
-                callback();
-            };
+        button.mousedown = button.touchstart = function(){
+            this.texture = button2Texture;
+            callback();
+        };
 
-            button.mouseup = button.touchend = function(){
-                this.texture = button1Texture;
-            };
+        button.mouseup = button.touchend = function(){
+            this.texture = button1Texture;
+        };
 
-            return button;
-        }
+        return button;
+    }
 
-        function createText(text, size, fill){
-            size = size || 25;
-            fill = fill || "#ffffff";
-            var txt = new PIXI.Text(text, {
-                fill: fill,
-                font: size + "px Arial"
-            });
-            txt.anchor.set(0.5, 0.5);
+    function createText(text, size, fill){
+        size = size || 25;
+        fill = fill || "#ffffff";
+        var txt = new PIXI.Text(text, {
+            fill: fill,
+            font: size + "px Arial"
+        });
+        txt.anchor.set(0.5, 0.5);
 
-            return txt;
-        }
+        return txt;
     }
 
     if (window.cordova) {
