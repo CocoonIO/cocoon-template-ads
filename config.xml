@@ -33,7 +33,7 @@
     <cocoon:plugin name="cocoon-plugin-ads-android-mopub-chartboost" />
     <cocoon:plugin name="cocoon-plugin-ads-android-mopub-greystripe" />
     <cocoon:plugin name="cocoon-plugin-ads-android-mopub-inmobi" />
-    <cocoon:plugin name="cocoon-plugin-ads-android-mopub-millennial" />
+    <cocoon:plugin name="cocoon-plugin-ads-android-mopub-millennialmedia" />
 
     <!-- Admob Base Plugins -->
     <cocoon:plugin name="cocoon-plugin-ads-ios-admob"/>
