@@ -81,6 +81,7 @@
                       interstitial:"ca-app-pub-7686972479101507/4443703872"
                  }
             });
+            showControls();
 
         });
         var btnTestMoPub = createButton("Test MoPub", function(){
