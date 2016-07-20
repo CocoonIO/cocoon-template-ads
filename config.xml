@@ -7,9 +7,6 @@
     <author email="nazari@ludei.com" href="http://ludei.com/">
         Nazarí González
     </author>
-    
-    <!-- Shown in the wizard -->
-    <icon src="icon.png" />
 
     <content src="index.html" />
     <access origin="*"/>
