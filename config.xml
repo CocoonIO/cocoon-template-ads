@@ -14,27 +14,51 @@
     <preference name="Orientation" value="landscape"/>
     <preference name="Fullscreen" value="true" />
 
-    <cocoon:plugin name="com.ludei.canvasplus.ios" />
-    <cocoon:plugin name="com.ludei.canvasplus.android" />  
-
-    <!-- MoPub Base Plugins -->
-    <cocoon:plugin name="cocoon-plugin-ads-ios-mopub" />
-    <cocoon:plugin name="cocoon-plugin-ads-android-mopub" />
-    <!-- MoPub Adapters -->
-    <cocoon:plugin name="cocoon-plugin-ads-ios-mopub-adcolony" />
-    <cocoon:plugin name="cocoon-plugin-ads-ios-mopub-admob" />
-    <cocoon:plugin name="cocoon-plugin-ads-ios-mopub-chartboost" />
-    <cocoon:plugin name="cocoon-plugin-ads-ios-mopub-millennial" />
-    <cocoon:plugin name="cocoon-plugin-ads-android-mopub-adcolony" />
-    <cocoon:plugin name="cocoon-plugin-ads-android-mopub-admob" />
-    <cocoon:plugin name="cocoon-plugin-ads-android-mopub-chartboost" />
-    <cocoon:plugin name="cocoon-plugin-ads-android-mopub-greystripe" />
-    <cocoon:plugin name="cocoon-plugin-ads-android-mopub-inmobi" />
-    <cocoon:plugin name="cocoon-plugin-ads-android-mopub-millennialmedia" />
+    <plugin name="com.ludei.canvasplus.android"/>
+    <plugin name="com.ludei.canvasplus.ios"/>
 
     <!-- Admob Base Plugins -->
-    <cocoon:plugin name="cocoon-plugin-ads-ios-admob"/>
-    <cocoon:plugin name="cocoon-plugin-ads-android-admob"/>
+    <plugin name="cocoon-plugin-ads-android-admob"/>
+    <plugin name="cocoon-plugin-ads-ios-admob"/>
+
+    <!-- Admob Adapters -->
+    <plugin name="cocoon-plugin-ads-android-admob-adcolony">
+        <variable name="APP_ID" value="YOUR_VALUE"/>
+        <variable name="ZONE_ID" value="YOUR_VALUE"/>
+    </plugin>
+    <plugin name="cocoon-plugin-ads-android-admob-applovin">
+        <variable name="SDK_KEY" value="YOUR_VALUE"/>
+    </plugin>
+    <plugin name="cocoon-plugin-ads-android-admob-chartboost"/>
+    <plugin name="cocoon-plugin-ads-android-admob-unityads"/>
+    <plugin name="cocoon-plugin-ads-ios-admob-adcolony">
+        <variable name="APP_ID" value="YOUR_VALUE"/>
+        <variable name="ZONE_ID" value="YOUR_VALUE"/>
+    </plugin>
+    <plugin name="cocoon-plugin-ads-ios-admob-applovin">
+        <variable name="SDK_KEY" value="YOUR_VALUE"/>
+    </plugin>
+    <plugin name="cocoon-plugin-ads-ios-admob-inmobi"/>
+    <plugin name="cocoon-plugin-ads-ios-admob-unityads"/>
+
+    <!-- MoPub Base Plugins -->
+    <plugin name="cocoon-plugin-ads-android-mopub"/>
+    <plugin name="cocoon-plugin-ads-ios-mopub"/>
+
+    <!-- MoPub Adapters -->
+    <plugin name="cocoon-plugin-ads-android-mopub-adcolony"/>
+    <plugin name="cocoon-plugin-ads-android-mopub-admob"/>
+    <plugin name="cocoon-plugin-ads-android-mopub-applovin">
+        <variable name="SDK_KEY" value="YOUR_VALUE"/>
+    </plugin>
+    <plugin name="cocoon-plugin-ads-android-mopub-chartboost"/>
+    <plugin name="cocoon-plugin-ads-ios-mopub-adcolony"/>
+    <plugin name="cocoon-plugin-ads-ios-mopub-admob"/>
+    <plugin name="cocoon-plugin-ads-ios-mopub-applovin">
+        <variable name="SDK_KEY" value="YOUR_VALUE"/>
+    </plugin>
+    <plugin name="cocoon-plugin-ads-ios-mopub-chartboost"/>
+
     <!-- ANDROID -->
     <platform name="android">
         <icon src="res/android/ldpi.png" density="ldpi" />
